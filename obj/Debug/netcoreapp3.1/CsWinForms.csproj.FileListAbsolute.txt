@@ -1,0 +1,11 @@
+C:\Users\PICHAU\Desktop\Luiza\CSharp\Ropositorios\CsWinForms\bin\Debug\netcoreapp3.1\CsWinForms.exe
+C:\Users\PICHAU\Desktop\Luiza\CSharp\Ropositorios\CsWinForms\bin\Debug\netcoreapp3.1\CsWinForms.deps.json
+C:\Users\PICHAU\Desktop\Luiza\CSharp\Ropositorios\CsWinForms\bin\Debug\netcoreapp3.1\CsWinForms.runtimeconfig.json
+C:\Users\PICHAU\Desktop\Luiza\CSharp\Ropositorios\CsWinForms\bin\Debug\netcoreapp3.1\CsWinForms.runtimeconfig.dev.json
+C:\Users\PICHAU\Desktop\Luiza\CSharp\Ropositorios\CsWinForms\bin\Debug\netcoreapp3.1\CsWinForms.dll
+C:\Users\PICHAU\Desktop\Luiza\CSharp\Ropositorios\CsWinForms\bin\Debug\netcoreapp3.1\CsWinForms.pdb
+C:\Users\PICHAU\Desktop\Luiza\CSharp\Ropositorios\CsWinForms\obj\Debug\netcoreapp3.1\CsWinForms.csprojAssemblyReference.cache
+C:\Users\PICHAU\Desktop\Luiza\CSharp\Ropositorios\CsWinForms\obj\Debug\netcoreapp3.1\CsWinForms.AssemblyInfoInputs.cache
+C:\Users\PICHAU\Desktop\Luiza\CSharp\Ropositorios\CsWinForms\obj\Debug\netcoreapp3.1\CsWinForms.AssemblyInfo.cs
+C:\Users\PICHAU\Desktop\Luiza\CSharp\Ropositorios\CsWinForms\obj\Debug\netcoreapp3.1\CsWinForms.dll
+C:\Users\PICHAU\Desktop\Luiza\CSharp\Ropositorios\CsWinForms\obj\Debug\netcoreapp3.1\CsWinForms.pdb
