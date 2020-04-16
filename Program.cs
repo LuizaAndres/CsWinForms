@@ -15,10 +15,34 @@ namespace CsWinForms
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Formulario());
+            Application.Run(new TelaInicial());
         }
     }
-    public class Formulario : Form {
+    public class TelaInicial : Form {
+        Button btnCadastraCliente;
+        Button btnListaClientes;
+        Button btnDetalhaCliente;
+        Button btnCadastraFilme;
+        Button btnListaFilmes;
+        Button btnDetalhaFilme;
+        Button btnCadastaLocacao;
+        Button btnListaLocacoes;
+        public TelaInicial(){
+            btnCadastraCliente = new Button();
+            btnCadastraCliente.Size = new Size(200, 20);
+            btnCadastraCliente.Location = new Point(40, 30);
+            btnCadastraCliente.Text = "Cadastrar Cliente";
+            this.Controls.Add(btnCadastraCliente);
+            btnCadastraCliente.Click += new EventHandler(btnCadastraClienteClick);
+        }
+        private void btnCadastraClienteClick(object sender, EventArgs e)
+        {
+            CadastraCliente cadastraCliente = new CadastraCliente();
+            cadastraCliente.ShowDialog();
+        }
+
+    }
+    public class CadastraCliente : Form {
         Label lblNome;
         Label lblDtNasc;
         Label lblCpf;
@@ -30,7 +54,7 @@ namespace CsWinForms
         Button btnConfirma;
         Button btnCancela;
          
-        public Formulario(){
+        public CadastraCliente(){
             int x = 20;
             this.Text = "BlockBuster";
             this.BackColor = Color.Beige;
@@ -92,6 +116,55 @@ namespace CsWinForms
             btnCancela.Text = "Cancela";
             this.Controls.Add(btnCancela);
             btnCancela.Click += new EventHandler(btnCancelaClick);
+        }
+    
+        private void btnConfirmaClick(object sender, EventArgs e)
+        {
+            MessageBox.Show("Confirmado!!");
+        }
+
+        private void btnCancelaClick(object sender, EventArgs e)
+        {
+            MessageBox.Show("Cancelado!!");
+        }
+    }
+    public class CadastraFilme : Form {
+        Label lblNome;
+        Label lblDtNasc;
+        Label lblCpf;
+        Label lblDiasDev;
+        TextBox txtNome;
+        TextBox txtDtNasc;
+        TextBox txtCpf;
+        TextBox txtDiasDev;
+        Button btnConfirma;
+        Button btnCancela;
+         
+        public CadastraFilme(){
+            int x = 20;
+            this.Text = "BlockBuster";
+            this.BackColor = Color.Beige;
+
+            lblNome = new Label();
+            lblNome.Text = "Nome: ";
+            lblNome.Location = new Point(x,20);
+            
+            txtNome = new TextBox();
+            txtNome.Location = new Point(x,45);
+            txtNome.Size = new Size(180,20);
+
+            this.Controls.Add(lblNome);
+            this.Controls.Add(txtNome);
+            
+            this.Size = new Size(300,400);
+
+            btnConfirma = new Button();
+            btnConfirma.Size = new Size(80, 20);
+            btnConfirma.Location = new Point(x, 270);
+            btnConfirma.Text = "Confirma";
+            this.Controls.Add(btnConfirma);
+            btnConfirma.Click += new EventHandler(btnConfirmaClick);
+
         }
     
         private void btnConfirmaClick(object sender, EventArgs e)
