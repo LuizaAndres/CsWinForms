@@ -34,13 +34,24 @@ namespace CsWinForms
             btnCadastraCliente.Text = "Cadastrar Cliente";
             this.Controls.Add(btnCadastraCliente);
             btnCadastraCliente.Click += new EventHandler(btnCadastraClienteClick);
+
+            btnCadastraFilme = new Button();
+            btnCadastraFilme.Size = new Size(200, 20);
+            btnCadastraFilme.Location = new Point(40, 60);
+            btnCadastraFilme.Text = "Cadastra Filme";
+            this.Controls.Add(btnCadastraFilme);
+            btnCadastraFilme.Click += new EventHandler(CadastraFilmeClick);
         }
         private void btnCadastraClienteClick(object sender, EventArgs e)
         {
             CadastraCliente cadastraCliente = new CadastraCliente();
             cadastraCliente.ShowDialog();
         }
-
+        private void CadastraFilmeClick(object sender, EventArgs e)
+        {
+            CadastraFilme ListaClientesClick = new CadastraFilme();
+            ListaClientesClick.ShowDialog();
+        }
     }
     public class CadastraCliente : Form {
         Label lblNome;
@@ -121,11 +132,14 @@ namespace CsWinForms
         private void btnConfirmaClick(object sender, EventArgs e)
         {
             MessageBox.Show("Confirmado!!");
+            this.Close();
+
         }
 
         private void btnCancelaClick(object sender, EventArgs e)
         {
             MessageBox.Show("Cancelado!!");
+            this.Close();
         }
     }
     public class CadastraFilme : Form {
@@ -160,21 +174,30 @@ namespace CsWinForms
 
             btnConfirma = new Button();
             btnConfirma.Size = new Size(80, 20);
-            btnConfirma.Location = new Point(x, 270);
+            btnConfirma.Location = new Point(20, 270);
             btnConfirma.Text = "Confirma";
             this.Controls.Add(btnConfirma);
             btnConfirma.Click += new EventHandler(btnConfirmaClick);
+
+            btnCancela = new Button();
+            btnCancela.Size = new Size(80, 20);
+            btnCancela.Location = new Point(120, 270);
+            btnCancela.Text = "Cancela";
+            this.Controls.Add(btnCancela);
+            btnCancela.Click += new EventHandler(btnCancelaClick);
 
         }
     
         private void btnConfirmaClick(object sender, EventArgs e)
         {
             MessageBox.Show("Confirmado!!");
+            this.Close();
         }
 
         private void btnCancelaClick(object sender, EventArgs e)
         {
             MessageBox.Show("Cancelado!!");
+            this.Close();
         }
     }
 }
