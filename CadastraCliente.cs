@@ -13,7 +13,11 @@ namespace CsWinForms
         TextBox txtNome;
         TextBox txtDtNasc;
         TextBox txtCpf;
-        TextBox txtDiasDev;
+        ComboBox cbDiasDev;
+        CheckBox chbAtivo;
+        GroupBox gbGenero;
+        RadioButton rbSexoMasc;
+        RadioButton rbSexoFem;
         Button btnConfirma;
         Button btnCancela;
         public CadastraCliente()
@@ -27,32 +31,61 @@ namespace CsWinForms
             lblNome.Location = new Point(x, 20);
 
             txtNome = new TextBox();
-            txtNome.Location = new Point(x, 45);
-            txtNome.Size = new Size(180, 20);
+            txtNome.Location = new Point(130, 20);
+            txtNome.Size = new Size(110, 20);
 
             lblDtNasc = new Label();
             lblDtNasc.Text = "Dt. Nasc:";
-            lblDtNasc.Location = new Point(x, 80);
+            lblDtNasc.Location = new Point(x, 50);
 
             txtDtNasc = new TextBox();
-            txtDtNasc.Location = new Point(x, 105);
-            txtDtNasc.Size = new Size(180, 20);
+            txtDtNasc.Location = new Point(130, 50);
+            txtDtNasc.Size = new Size(110, 20);
 
             lblCpf = new Label();
             lblCpf.Text = "CPF: ";
-            lblCpf.Location = new Point(x, 140);
+            lblCpf.Location = new Point(x, 80);
 
             txtCpf = new TextBox();
-            txtCpf.Location = new Point(x, 165);
-            txtCpf.Size = new Size(180, 20);
+            txtCpf.Location = new Point(130, 80);
+            txtCpf.Size = new Size(110, 20);
 
             lblDiasDev = new Label();
             lblDiasDev.Text = "Dias Dev.: ";
-            lblDiasDev.Location = new Point(x, 200);
+            lblDiasDev.Location = new Point(x, 110);
 
-            txtDiasDev = new TextBox();
-            txtDiasDev.Location = new Point(x, 225);
-            txtDiasDev.Size = new Size(180, 20);
+            cbDiasDev = new ComboBox();
+            cbDiasDev.Items.Add("05");
+            cbDiasDev.Items.Add("10");
+            cbDiasDev.Items.Add("15");
+            cbDiasDev.Items.Add("20");
+            cbDiasDev.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cbDiasDev.Location = new Point(130, 110);
+            cbDiasDev.Size = new Size(110, 20);
+            cbDiasDev.Sorted = true;
+
+            chbAtivo = new CheckBox();
+            chbAtivo.Location = new Point (130,140);
+            chbAtivo.Size = new Size (110,20);
+            chbAtivo.Text = "Ativo?";
+
+            gbGenero = new GroupBox();
+            gbGenero.Location = new Point (130,170);
+            gbGenero.Size = new Size (110,80);
+            gbGenero.Text = "Genero";
+
+            rbSexoMasc = new RadioButton();
+            rbSexoMasc.Location = new Point(5,20);
+            rbSexoMasc.Size = new Size (110,20);
+            rbSexoMasc.Text = "Masculino";
+
+            rbSexoFem = new RadioButton();
+            rbSexoFem.Location = new Point(5,50);
+            rbSexoFem.Size = new Size (110,20);
+            rbSexoFem.Text = "Feminino";
+
+            gbGenero.Controls.Add(rbSexoMasc);
+            gbGenero.Controls.Add(rbSexoFem);
 
             this.Controls.Add(lblNome);
             this.Controls.Add(txtNome);
@@ -61,7 +94,9 @@ namespace CsWinForms
             this.Controls.Add(lblCpf);
             this.Controls.Add(txtCpf);
             this.Controls.Add(lblDiasDev);
-            this.Controls.Add(txtDiasDev);
+            this.Controls.Add(cbDiasDev);
+            this.Controls.Add(chbAtivo);
+            this.Controls.Add(gbGenero);
             this.Size = new Size(300, 400);
 
             btnConfirma = new Button();
@@ -80,7 +115,14 @@ namespace CsWinForms
         }
         private void btnConfirmaClick(object sender, EventArgs e)
         {
-            MessageBox.Show("Confirmado!!");
+            MessageBox.Show(
+                $"Nome: {this.txtNome.Text}\n" +
+                $"Data Nasc: {this.txtDtNasc.Text}\n" +
+                $"CPF: {this.txtDtNasc.Text}\n" +
+                $"DiasDev: {this.cbDiasDev.Text}",
+                "Cliente",
+                MessageBoxButtons.OK
+            );
             this.Close();
             TelaInicial telaInicial = new TelaInicial();
             telaInicial.Show();

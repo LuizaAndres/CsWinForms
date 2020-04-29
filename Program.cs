@@ -102,27 +102,23 @@ namespace CsWinForms
             btnSair.Text = "Sair";
             this.Controls.Add(btnSair);
             btnSair.Click += new EventHandler(btnSairClick);
-            
         }
         private void btnSairClick(object sender, EventArgs e)
         {
             this.Hide();
             Application.Exit();
-            
         }
         private void btnCadastraClienteClick(object sender, EventArgs e)
         {
             this.Hide();
             CadastraCliente cadastraCliente = new CadastraCliente();
             cadastraCliente.Show();
-            
         }
         private void btnListaClientesClick(object sender, EventArgs e)
         {
             this.Hide();
             ListaClientes listaClientes = new ListaClientes();
             listaClientes.Show();
-            
         }
         private void CadastraFilmeClick(object sender, EventArgs e)
         {
@@ -136,133 +132,5 @@ namespace CsWinForms
             DetalhaCliente DetalhaClienteClick = new DetalhaCliente();
             DetalhaClienteClick.Show();
         }
-    }
-    
-    public class CadastraFilme : Form {
-        Label lblNome;
-        TextBox txtNome;
-        Button btnConfirma;
-        Button btnCancela;
-        public CadastraFilme(){
-            int x = 20;
-            this.Text = "Cadastra Filme";
-            this.BackColor = Color.Beige;
-
-            lblNome = new Label();
-            lblNome.Text = "Nome: ";
-            lblNome.Location = new Point(x,20);
-            
-            txtNome = new TextBox();
-            txtNome.Location = new Point(x,45);
-            txtNome.Size = new Size(180,20);
-
-            this.Controls.Add(lblNome);
-            this.Controls.Add(txtNome);
-            
-            this.Size = new Size(300,400);
-
-            btnConfirma = new Button();
-            btnConfirma.Size = new Size(80, 20);
-            btnConfirma.Location = new Point(20, 270);
-            btnConfirma.Text = "Confirma";
-            this.Controls.Add(btnConfirma);
-            btnConfirma.Click += new EventHandler(btnConfirmaClick);
-
-            btnCancela = new Button();
-            btnCancela.Size = new Size(80, 20);
-            btnCancela.Location = new Point(120, 270);
-            btnCancela.Text = "Cancela";
-            this.Controls.Add(btnCancela);
-            btnCancela.Click += new EventHandler(btnCancelaClick);
-        }
-        private void btnConfirmaClick(object sender, EventArgs e)
-        {
-            MessageBox.Show("Confirmado!!");
-            this.Close();
-            TelaInicial telaInicial = new TelaInicial();
-            telaInicial.Show();
-        }
-        private void btnCancelaClick(object sender, EventArgs e)
-        {
-            MessageBox.Show("Cancelado!!");
-            this.Close();
-            TelaInicial telaInicial = new TelaInicial();
-            telaInicial.Show();
-        }
-    }
-public class ListaClientes : Form {
-        Button btnConfirma;
-        Button btnCancela;
-        public ListaClientes(){
-            this.Text = "Lista Cliente";
-            this.BackColor = Color.Beige;
-            this.Size = new Size(300,400);
-
-            btnConfirma = new Button();
-            btnConfirma.Size = new Size(80, 20);
-            btnConfirma.Location = new Point(20, 270);
-            btnConfirma.Text = "Confirma";
-            this.Controls.Add(btnConfirma);
-            btnConfirma.Click += new EventHandler(btnConfirmaClick);
-
-            btnCancela = new Button();
-            btnCancela.Size = new Size(80, 20);
-            btnCancela.Location = new Point(120, 270);
-            btnCancela.Text = "Cancela";
-            this.Controls.Add(btnCancela);
-            btnCancela.Click += new EventHandler(btnCancelaClick);
-        }
-        private void btnConfirmaClick(object sender, EventArgs e)
-        {
-            MessageBox.Show("Confirmado!!");
-            this.Close();
-            TelaInicial telaInicial = new TelaInicial();
-            telaInicial.Show();
-        }
-        private void btnCancelaClick(object sender, EventArgs e)
-        {
-            MessageBox.Show("Cancelado!!");
-            this.Close();
-            TelaInicial telaInicial = new TelaInicial();
-            telaInicial.Show();
-        }
-    }
-    public class DetalhaCliente : Form {
-        Button btnConfirma;
-        Button btnCancela;
-        public DetalhaCliente(){
-            this.Text = "Cliente";
-            this.BackColor = Color.Beige;
-            this.Size = new Size(300,400);
-
-            btnConfirma = new Button();
-            btnConfirma.Size = new Size(80, 20);
-            btnConfirma.Location = new Point(20, 270);
-            btnConfirma.Text = "Confirma";
-            this.Controls.Add(btnConfirma);
-            btnConfirma.Click += new EventHandler(btnConfirmaClick);
-
-            btnCancela = new Button();
-            btnCancela.Size = new Size(80, 20);
-            btnCancela.Location = new Point(120, 270);
-            btnCancela.Text = "Cancela";
-            this.Controls.Add(btnCancela);
-            btnCancela.Click += new EventHandler(btnCancelaClick);
-        }
-        private void btnConfirmaClick(object sender, EventArgs e)
-        {
-            MessageBox.Show("Confirmado!!");
-            this.Close();
-            TelaInicial telaInicial = new TelaInicial();
-            telaInicial.Show();
-        }
-        private void btnCancelaClick(object sender, EventArgs e)
-        {
-            MessageBox.Show("Cancelado!!");
-            this.Close();
-            TelaInicial telaInicial = new TelaInicial();
-            telaInicial.Show();
-        }
-    }
+    }  
 }
-
