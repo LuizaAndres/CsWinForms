@@ -10,9 +10,9 @@ namespace CsWinForms
         Label lblDtNasc;
         Label lblCpf;
         Label lblDiasDev;
-        TextBox txtNome;
-        TextBox txtDtNasc;
-        TextBox txtCpf;
+        RichTextBox rtxtNome;
+        MaskedTextBox txtDtNasc;
+        MaskedTextBox txtCpf;
         ComboBox cbDiasDev;
         CheckBox chbAtivo;
         GroupBox gbGenero;
@@ -20,6 +20,9 @@ namespace CsWinForms
         RadioButton rbSexoFem;
         Button btnConfirma;
         Button btnCancela;
+        NumericUpDown numDiasDev;
+        PictureBox pbImagem;
+//        LinkLabel linkHelp;
         public CadastraCliente()
         {
             int x = 20;
@@ -30,39 +33,49 @@ namespace CsWinForms
             lblNome.Text = "Nome: ";
             lblNome.Location = new Point(x, 20);
 
-            txtNome = new TextBox();
-            txtNome.Location = new Point(130, 20);
-            txtNome.Size = new Size(110, 20);
+            rtxtNome = new RichTextBox();
+            rtxtNome.Location = new Point(130, 20);
+            rtxtNome.Size = new Size(110, 20);
 
             lblDtNasc = new Label();
             lblDtNasc.Text = "Dt. Nasc:";
             lblDtNasc.Location = new Point(x, 50);
 
-            txtDtNasc = new TextBox();
+            txtDtNasc = new MaskedTextBox();
             txtDtNasc.Location = new Point(130, 50);
             txtDtNasc.Size = new Size(110, 20);
+            txtDtNasc.Mask = "00/00/0000";
 
             lblCpf = new Label();
             lblCpf.Text = "CPF: ";
             lblCpf.Location = new Point(x, 80);
 
-            txtCpf = new TextBox();
+            txtCpf = new MaskedTextBox();
             txtCpf.Location = new Point(130, 80);
             txtCpf.Size = new Size(110, 20);
+            txtCpf.Mask = "000.000.000-00";
 
             lblDiasDev = new Label();
             lblDiasDev.Text = "Dias Dev.: ";
             lblDiasDev.Location = new Point(x, 110);
 
-            cbDiasDev = new ComboBox();
-            cbDiasDev.Items.Add("05");
-            cbDiasDev.Items.Add("10");
-            cbDiasDev.Items.Add("15");
-            cbDiasDev.Items.Add("20");
-            cbDiasDev.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            cbDiasDev.Location = new Point(130, 110);
-            cbDiasDev.Size = new Size(110, 20);
-            cbDiasDev.Sorted = true;
+            // cbDiasDev = new ComboBox();
+            // cbDiasDev.Items.Add("05");
+            // cbDiasDev.Items.Add("10");
+            // cbDiasDev.Items.Add("15");
+            // cbDiasDev.Items.Add("20");
+            // cbDiasDev.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            // cbDiasDev.Location = new Point(130, 110);
+            // cbDiasDev.Size = new Size(110, 20);
+            // cbDiasDev.Sorted = true;
+
+            numDiasDev = new NumericUpDown();
+            numDiasDev.Location = new Point(130, 110);
+            numDiasDev.Size = new Size(110, 20);
+            numDiasDev.Maximum = 20;
+            numDiasDev.Minimum = 5;
+            numDiasDev.Increment = 5;
+            numDiasDev.ReadOnly = true;
 
             chbAtivo = new CheckBox();
             chbAtivo.Location = new Point (130,140);
@@ -87,16 +100,32 @@ namespace CsWinForms
             gbGenero.Controls.Add(rbSexoMasc);
             gbGenero.Controls.Add(rbSexoFem);
 
+            pbImagem = new PictureBox();
+            pbImagem.Size = new Size(100,100);
+            pbImagem.Location = new Point (x,140);
+            pbImagem.ClientSize = new Size (100,100);
+            pbImagem.Load("./imagem.bmp");
+            pbImagem.SizeMode = PictureBoxSizeMode.CenterImage;
+
+/*             linkHelp = new LinkLabel();
+            linkHelp.Location = new Point (x, 300);
+            linkHelp.Size = new Size(100,30);
+            linkHelp.Text = "Ajuda";
+            linkHelp.LinkClicked += new LinkLabelLinkClickedEventHandler(helpLink);
+ */
             this.Controls.Add(lblNome);
-            this.Controls.Add(txtNome);
+            this.Controls.Add(rtxtNome);
             this.Controls.Add(lblDtNasc);
             this.Controls.Add(txtDtNasc);
             this.Controls.Add(lblCpf);
             this.Controls.Add(txtCpf);
             this.Controls.Add(lblDiasDev);
-            this.Controls.Add(cbDiasDev);
+            //this.Controls.Add(cbDiasDev);
+            this.Controls.Add(numDiasDev);
             this.Controls.Add(chbAtivo);
             this.Controls.Add(gbGenero);
+            this.Controls.Add(pbImagem);
+//            this.Controls.Add(linkHelp);
             this.Size = new Size(300, 400);
 
             btnConfirma = new Button();
@@ -113,10 +142,25 @@ namespace CsWinForms
             this.Controls.Add(btnCancela);
             btnCancela.Click += new EventHandler(btnCancelaClick);
         }
+        /*private void helpLink(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try{
+                visitLink();
+            }
+            catch (Exception err){
+                MessageBox.Show(err);
+            }
+        }
+        private void VisitLink()
+        {
+            this.helpLink.LinkVisited = true;
+            System.Diagnostics.Process.Start("https://google.com");
+        }
+        */
         private void btnConfirmaClick(object sender, EventArgs e)
         {
             MessageBox.Show(
-                $"Nome: {this.txtNome.Text}\n" +
+                $"Nome: {this.rtxtNome.Text}\n" +
                 $"Data Nasc: {this.txtDtNasc.Text}\n" +
                 $"CPF: {this.txtDtNasc.Text}\n" +
                 $"DiasDev: {this.cbDiasDev.Text}",
