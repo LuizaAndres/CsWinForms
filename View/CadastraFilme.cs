@@ -2,15 +2,32 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace CsWinForms
+namespace View
 {
-    public class DetalhaCliente : Form {
+    public class CadastraFilme : Form
+    {
+        Label lblNome;
+        TextBox txtNome;
         Button btnConfirma;
         Button btnCancela;
-        public DetalhaCliente(){
-            this.Text = "Cliente";
+        public CadastraFilme()
+        {
+            int x = 20;
+            this.Text = "Cadastra Filme";
             this.BackColor = Color.Beige;
-            this.Size = new Size(300,400);
+
+            lblNome = new Label();
+            lblNome.Text = "Nome: ";
+            lblNome.Location = new Point(x, 20);
+
+            txtNome = new TextBox();
+            txtNome.Location = new Point(x, 45);
+            txtNome.Size = new Size(180, 20);
+
+            this.Controls.Add(lblNome);
+            this.Controls.Add(txtNome);
+
+            this.Size = new Size(300, 400);
 
             btnConfirma = new Button();
             btnConfirma.Size = new Size(80, 20);

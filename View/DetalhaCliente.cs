@@ -2,13 +2,13 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace CsWinForms
+namespace View
 {
-    public class ListaClientes : Form {
+    public class DetalhaCliente : Form {
         Button btnConfirma;
         Button btnCancela;
-        public ListaClientes(){
-            this.Text = "Lista Cliente";
+        public DetalhaCliente(){
+            this.Text = "Cliente";
             this.BackColor = Color.Beige;
             this.Size = new Size(300,400);
 

@@ -2,13 +2,10 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace CsWinForms
+namespace View
 {
     static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
@@ -108,7 +105,7 @@ namespace CsWinForms
             this.Hide();
             Application.Exit();
         }
-        private void btnCadastraClienteClick(object sender, EventArgs e)
+        public void btnCadastraClienteClick(object sender, EventArgs e)
         {
             this.Hide();
             CadastraCliente cadastraCliente = new CadastraCliente();
